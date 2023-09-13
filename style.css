@@ -1,0 +1,90 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: clamp(20px, 5vw, 50px) 20px 20px;
+}
+.wiki-logo {
+  width: clamp(100px, 25vw, 250px);
+  display: block; /*pour le margin*/
+  margin: 50px auto 0;
+}
+h1 {
+  font-size: clamp(20px, 5vw, 50px);
+  color: #333;
+  text-align: center;
+  margin: 20px 0 10px;
+  font-weight: 100;
+}
+h1 span {
+  font-weight: 800;
+}
+form {
+  max-width: 800px;
+  margin: 0 auto 30px; /*deja en block par defaut*/
+}
+input {
+  display: block; /*car c'est inline, pour les margins*/
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+.error-msg {
+  text-align: center;
+  color: #454545;
+}
+.results-display {
+  max-width: 600px;
+  margin: 70px auto; /*un bloc*/
+}
+.loader {
+  display: none;/* display: flex; sur js seulement qd on chargera qlq chose */
+  justify-content: center;
+}
+.dot {
+  /* display: block; car c'est du span  mais vu q c'est des enfant du loader flex, ils heritent la propriétés*/
+  animation: load 0.3s infinite ease-out alternate;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #111;
+  margin: 0 3px;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.2s;
+}
+@keyframes load {
+    to {
+      transform: translateY(10px);
+    }
+}
+.result-item {
+  margin-bottom: 20px;
+}
+.result-title {
+  font-size: 22px;
+}
+.result-snippet {
+  font-size: 15px;
+  color: #444;
+} 
+.result-link {
+  color: #006621;
+  text-decoration: none;
+  display: block;
+  overflow-wrap: break-word;
+}
